@@ -3,6 +3,7 @@ let input = document.getElementById("input");
 let saveBtn = document.getElementById("save");
 let deleteBtn = document.getElementById("delete");
 let lastInput = document.getElementById("oldValue");
+let clearBtn = document.getElementById("clear");
 let NAMES = "Names";
 let names = [];
 
@@ -19,23 +20,42 @@ if (localStorage.getItem(NAMES)) {
 saveBtn.addEventListener("click", function () {
 	names.push(input.value);
 	localStorage.setItem(NAMES, JSON.stringify(names));
-	lastInput.textContent = names[names.length - 1];
+	lastInput.textContent = "Your last input was: " + names[names.length - 1];
+	input.value = "";
 });
 
 deleteBtn.addEventListener("click", function () {
 	names.pop();
 	localStorage.setItem(NAMES, JSON.stringify(names));
-	lastInput.textContent = names[names.length - 1];
+	lastInput.textContent = "Your last input was: " + names[names.length - 1];
+	if (names[names.length - 1] === undefined) {
+		lastInput.textContent = "Nessun nome inserito";
+	}
+});
+
+clearBtn.addEventListener("click", function () {
+	localStorage.clear();
+	names = [];
+	lastInput.textContent = "Nessun nome inserito";
 });
 
 //TIMER
-let time = [];
-let rolex = document.getElementById("rolex");
 
-const clock = () => {
-	let seconds = 1;
-	time.push(seconds);
-	sessionStorage.setItem(time, JSON.stringify(time));
-	rolex.innerHTML = sessionStorage.getItem(time, JSON.parse(time));
+let rolex;
+let counterValue = parseInt(sessionStorage.getItem("lastCounterValue")) || 0;
+
+const updateClock = () => {
+	rolex.innerText = "Tempo trascorso: " + counterValue;
 };
-clock();
+
+window.onload = () => {
+	rolex = document.getElementById("rolex");
+	updateClock();
+	setInterval(incrementCount, 1000);
+};
+
+const incrementCount = () => {
+	counterValue += 1;
+	updateClock();
+	sessionStorage.setItem("lastCounterValue", counterValue);
+};
