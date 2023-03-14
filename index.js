@@ -8,10 +8,6 @@ let NAMES = "Names";
 let names = [];
 
 //SAVE AND DELETE BUTTON
-//evito il comportamento di default del form, altrimenti non mi fa visualizzare l'ultimo nome al click del save
-document.querySelector("form").addEventListener("submit", function (event) {
-	event.preventDefault();
-});
 
 if (localStorage.getItem(NAMES)) {
 	names = JSON.parse(localStorage.getItem(NAMES));
