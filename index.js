@@ -13,29 +13,29 @@ if (localStorage.getItem(NAMES)) {
 	names = JSON.parse(localStorage.getItem(NAMES));
 }
 if (lastInput.value == null) {
-	lastInput.textContent = "Nessun nome inserito";
+	lastInput.innerText = "Nessun nome inserito";
 }
 
 saveBtn.addEventListener("click", function () {
 	names.push(input.value);
 	localStorage.setItem(NAMES, JSON.stringify(names));
-	lastInput.textContent = "Your last input was: " + names[names.length - 1];
+	lastInput.innerText = "Your last input was: " + names[names.length - 1];
 	input.value = "";
 });
 
 deleteBtn.addEventListener("click", function () {
 	names.pop();
 	localStorage.setItem(NAMES, JSON.stringify(names));
-	lastInput.textContent = "Your last input was: " + names[names.length - 1];
+	lastInput.innerText = "Your last input was: " + names[names.length - 1];
 	if (names[names.length - 1] === undefined) {
-		lastInput.textContent = "Nessun nome inserito";
+		lastInput.innerText = "Nessun nome inserito";
 	}
 });
 
 clearBtn.addEventListener("click", function () {
 	localStorage.clear();
 	names = [];
-	lastInput.textContent = "Nessun nome inserito";
+	lastInput.innerText = "Nessun nome inserito";
 });
 
 //TIMER
