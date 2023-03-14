@@ -12,6 +12,9 @@ let names = [];
 if (localStorage.getItem(NAMES)) {
 	names = JSON.parse(localStorage.getItem(NAMES));
 }
+if (lastInput.value == null) {
+	lastInput.textContent = "Nessun nome inserito";
+}
 
 saveBtn.addEventListener("click", function () {
 	names.push(input.value);
