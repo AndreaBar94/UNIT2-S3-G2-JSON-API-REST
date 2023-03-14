@@ -11,9 +11,6 @@ let names = [];
 
 if (localStorage.getItem(NAMES)) {
 	names = JSON.parse(localStorage.getItem(NAMES));
-	if (names[names.length - 1] === undefined) {
-		lastInput.textContent = "Nessun nome inserito";
-	}
 }
 
 saveBtn.addEventListener("click", function () {
