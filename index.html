@@ -5,23 +5,26 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Form and timer</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<div class="container d-flex justify-content-center p-3">
-			<p id="oldValue" class="p-3 rounded bg-warning"></p>
-		</div>
+		<div class="container bg-light rounded-5 shadow-lg mt-5">
+			<div class="container d-flex justify-content-center p-3">
+				<p id="oldValue" class="p-3 rounded bg-warning shadow-sm"></p>
+			</div>
 
-		<div class="container d-flex justify-content-center align-items-center p-3 bg-light">
-			<form class="d-flex">
-				<input type="text" id="input" class="form-control mx-1" required placeholder="Insert your name here" />
-				<button type="submit" id="save" class="btn btn-outline-primary mx-1">Save</button>
-			</form>
-			<button type="submit" id="delete" class="btn btn-outline-warning mx-1">Delete</button>
-			<button type="submit" id="clear" class="btn btn-outline-danger mx-1">Clear All</button>
-		</div>
+			<div class="container d-flex justify-content-center align-items-center p-3">
+				<form class="d-flex">
+					<input type="text" id="input" class="form-control mx-1 shadow-sm" required placeholder="Insert your name here" />
+					<button type="submit" id="save" class="btn btn-outline-success mx-1 shadow-sm">Save</button>
+				</form>
+				<button type="submit" id="delete" class="btn btn-outline-warning mx-1 shadow-sm">Delete</button>
+				<button type="submit" id="clear" class="btn btn-outline-danger mx-1 shadow-sm">Clear All</button>
+			</div>
 
-		<div class="container text-center p-3 bg-light">
-			<p id="rolex"></p>
+			<div class="container text-center p-3">
+				<p id="rolex"></p>
+			</div>
 		</div>
 
 		<script src="index.js"></script>
